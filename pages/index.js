@@ -14,7 +14,7 @@ export default function FormPost() {
   const [created, setCreated] = useState('');
 
   const now = new Date().toLocaleString();
-    
+
 
   useEffect(() => {
     listPosts();
@@ -26,7 +26,7 @@ export default function FormPost() {
       .then((response)=>{
           const postsData = response.data
           setAllPosts(postsData)
-          
+
           const date = response.data[4].created
           console.log(new Date(date).toLocaleString())
       })
@@ -54,7 +54,7 @@ export default function FormPost() {
     else{
         endPoint = '/api/update'
     }
-    
+
     axios.post(endPoint, {
         id: id,
         title: title,
@@ -114,7 +114,7 @@ export default function FormPost() {
 
   return (
     <div className='container'>
-      <h1>Next.js Mysql</h1>
+      <h1>Next.js Mysql Crud</h1>
       <div>
         <h2>Post List</h2>
         <List posts={posts} handleDelete={(postid)=>{handleDeletePost(postid)}} handleEdit={(postid)=>{handleEditPost(postid)}} />
